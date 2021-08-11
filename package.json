@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "electron-reload": "^2.0.0-alpha.1",
+    "express": "^4.17.1",
+    "menubar": "^9.0.5",
+    "valid-url": "^1.0.9"
+  },
+  "devDependencies": {
+    "electron": "^13.1.9",
+    "electron-packager": "^15.3.0",
+    "electron-reloader": "^1.2.1",
+    "express-reload": "^1.2.0"
+  },
+  "main": "myApp.js",
+  "scripts": {
+    "start": "electron myApp.js",
+    "live": "nodemon myApp.js"
+  },
+  "name": "eletron",
+  "version": "1.0.0",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
