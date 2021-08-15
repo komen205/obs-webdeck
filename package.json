@@ -1,9 +1,8 @@
 {
   "dependencies": {
-    "electron-reload": "^2.0.0-alpha.1",
     "express": "^4.17.1",
     "menubar": "^9.0.5",
-    "valid-url": "^1.0.9"
+    "obs-websocket-js": "^4.0.2"
   },
   "devDependencies": {
     "electron": "^13.1.9",
