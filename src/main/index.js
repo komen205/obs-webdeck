@@ -1,5 +1,17 @@
 import { app, BrowserWindow } from 'electron'
 
+// Hello world
+const express = require('express')
+const expressApp = express()
+const port = 3000
+expressApp.get('/', (req, res) => {
+  res.send('Hello World from Electron!')
+})
+expressApp.listen(port, () => {
+  console.log(`Example expressApp listening at http://localhost:${port}`)
+})
+
+
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
