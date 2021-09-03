@@ -1,11 +1,10 @@
 <template>
   <div id="app">
     Here is where the buttons are going to be.
-    <div>[x]</div>
-    <div>[x]</div>
-    <div>[x]</div>
-    <div>[x]</div>
-    <div>[x]</div>
+    
+    <button v-for="(button, i) in deckConfig.buttons" :key=i>
+      {{ button.label }}
+    </button>
   </div>
 </template>
 
@@ -13,6 +12,19 @@
 
 export default {
   name: 'App',
+  data: () => ({
+    deckConfig: {
+      buttons: [],
+    },
+  }),
+  created() {
+    window.EventBus.$on('newDeckConfig', this.updateDeckConfig)
+  },
+  methods: {
+    updateDeckConfig(deckConfig) {
+      this.deckConfig = deckConfig
+    },
+  },
 }
 </script>
 

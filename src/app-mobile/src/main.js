@@ -1,17 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-var socket = io('http://localhost:3000');
+var socket = io('http://localhost:3000')
 
-socket.emit('chat message', 'input.value');
+window.EventBus = new Vue
 
-socket.on('server-ok', (data) => {
-  console.log('here')
-  console.log(data)
-})
+socket.on('newDeckConfig', (deckConfig) => EventBus.$emit('newDeckConfig', deckConfig))
 
 Vue.config.productionTip = false
-
 new Vue({
   render: h => h(App),
 }).$mount('#app')
