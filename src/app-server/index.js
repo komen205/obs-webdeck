@@ -1,10 +1,16 @@
 const express = require('express')
 const app = express()
 const http = require('http')
+const { SocketAddress } = require('net')
 const server = http.createServer(app)
 const path = require('path')
 const { Server } = require('socket.io')
-const io = new Server(server)
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"]
+  }
+})
 
 const mobileAppPath = __dirname + '/../src/app-mobile/dist'
 app.use(express.static(mobileAppPath))
@@ -20,4 +26,10 @@ server.listen(port, () => {
 
 io.on('connection', (socket) => {
   console.log('a user connected');
+
+  socket.emit('server-ok', 'successfully connected.')
+
+  socket.on('chat message', (msg) => {
+    console.log('message: ' + msg);
+  });
 });
