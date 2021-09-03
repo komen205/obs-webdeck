@@ -5,6 +5,7 @@ const { SocketAddress } = require('net')
 const server = http.createServer(app)
 const path = require('path')
 const { Server } = require('socket.io')
+var cors = require('cors')
 
 const io = new Server(server, {
   cors: {
@@ -16,8 +17,9 @@ app.io = io
 
 const mobileAppPath = __dirname + '/../src/app-mobile/dist'
 
-app.use(express.static(mobileAppPath))
+app.use(cors())
 app.use(require('body-parser').json())
+app.use(express.static(mobileAppPath))
 
 app.get('/', function (req, res) {
   res.sendFile(path.resolve(mobileAppPath + '/index.html'))

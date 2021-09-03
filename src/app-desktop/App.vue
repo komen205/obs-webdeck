@@ -2,15 +2,19 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     
-    <div>Go to webdeck</div>
+    <Settings />
 
   </div>
 </template>
 
 <script>
+import Settings from './components/Settings'
 
 export default {
   name: 'App',
+  components: {
+    Settings,
+  },
   methods: {
   },
 }
