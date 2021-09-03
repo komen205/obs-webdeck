@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     Here is where the buttons are going to be.
-    
-    <button v-for="(button, i) in deckConfig.buttons" :key=i>
+    <button
+        class="bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-2"
+        v-for="(button, i) in deckConfig.buttons"
+        :key=i
+    >
       {{ button.label }}
     </button>
   </div>
@@ -27,14 +30,3 @@ export default {
   },
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
