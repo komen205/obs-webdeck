@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import "tailwindcss/tailwind.css"
+import { io } from "socket.io-client"
 
-var socket = io('http://localhost:3000')
+console.log(process.env.VUE_APP_SOCKETIO_SERVER)
+const socket = io(process.env.VUE_APP_SOCKETIO_SERVER)
 
 window.EventBus = new Vue
 

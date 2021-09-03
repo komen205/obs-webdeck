@@ -4,15 +4,15 @@ const http = require('http')
 const { SocketAddress } = require('net')
 const server = http.createServer(app)
 const path = require('path')
-const { Server } = require('socket.io')
 var cors = require('cors')
 
-const io = new Server(server, {
+const ioOptions = {
   cors: {
     origin: "*",
     methods: ["GET", "POST"]
   }
-})
+}
+const io = require('socket.io')(server, options)
 app.io = io
 
 const mobileAppPath = __dirname + '/../src/app-mobile/dist'
