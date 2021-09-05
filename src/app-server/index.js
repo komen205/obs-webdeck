@@ -6,6 +6,7 @@ const server = http.createServer(app)
 const path = require('path')
 const { Server } = require('socket.io')
 var cors = require('cors')
+var portFinder = require("find-free-port")
 
 const io = new Server(server, {
   cors: {
@@ -31,12 +32,18 @@ app.post('/api/deck-config', function (req, res) {
   return res.send('Updated')
 })
 
-const port = 3000
 
-server.listen(port, () => {
-  console.log('listening on *:' + port)
-})
+portFinder(3000).then(([freePort]) => {
 
-io.on('connection', (socket) => {
-  console.log('A user connected');
+  server.listen(freePort, () => {
+    console.log('listening on *:' + freePort)
+  })
+  
+  io.on('connection', (socket) => {
+    console.log('A user connected');
+  });
+  
+}).catch((err)=>{
+  console.error(err);
 });
+
