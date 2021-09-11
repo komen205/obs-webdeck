@@ -13,7 +13,7 @@ const ioOptions = {
     methods: ["GET", "POST"]
   }
 }
-const io = require('socket.io')(server, options)
+const io = require('socket.io')(server, ioOptions)
 app.io = io
 
 const mobileAppPath = __dirname + '/../src/app-mobile/dist'
