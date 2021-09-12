@@ -10,6 +10,8 @@ window.EventBus = new Vue
 
 socket.on('newDeckConfig', (deckConfig) => EventBus.$emit('newDeckConfig', deckConfig))
 
+EventBus.$on('triggerObs', (event) => socket.emit('triggerobs','event'))
+
 Vue.config.productionTip = false
 new Vue({
   render: h => h(App),
