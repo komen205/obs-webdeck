@@ -12,6 +12,10 @@ npm run electron:serve
 ##
 ## (2) also go to ./src/app-mobile
 npm run serve
+
+or
+
+npm run start
 ```
 
 This results in:
